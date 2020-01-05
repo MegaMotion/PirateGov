@@ -1,0 +1,86 @@
+﻿@using TestCoreApp.Models.ViewModels.Surveys
+@model SurveyViewModel
+
+
+<script src="~/lib/chart.js/Scripts/Chart.min.js"></script>
+<script src="~/js/Surveys/ViewResults.js"></script>
+
+<script>
+    //global variables
+    var canvasID = "";
+    var answerLabels = [];
+    var answerCounts = [];
+    var answerBGColors = [];
+    var answerBorderColors = [];
+    var availableBGColors = [
+        'olivedrab',
+        'steelblue',
+        'slategrey',
+        'firebrick',
+        'darkviolet',
+        'burlywood'
+    ];
+    var availableBorderColors = [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+    ];
+    var maxColors = 0;
+</script>
+
+<div class="uk-grid">
+    <div class="uk-width-1-4 survey-name">
+        @Model.Name
+    </div>
+    <div class="uk-width-3-4 survey-description">
+        @Model.Description
+    </div>
+</div>
+
+<div class="uk-grid">
+
+    @if (Model.Questions.Count > 0)
+    {
+        @foreach (var q in Model.Questions)
+        {
+            <script>
+                canvasID = "Question_Canvas_" + @q.Id;
+               // maxColors = availableBGColors.length;
+            </script>
+            <div class="uk-width-medium-1-3 uk-panel-box survey-question-name">
+                @q.Sort . @q.Name
+            </div>
+            <div class="uk-width-medium-2-3 uk-panel-box survey-question-description">
+                @q.Description
+            </div>
+            var c = 0;
+            var maxColors = 6;
+            Random random = new Random();
+            int ac = random.Next(maxColors);
+            @foreach (var a in q.Answers)
+            {
+                <script>
+                    answerLabels[@c] = "@a.Name";
+                    answerCounts[@c] = @a.Description;
+                    answerBGColors[@c] = availableBGColors[@ac];
+                    answerBorderColors[@c] = availableBorderColors[@ac];
+                </script>
+                c++;
+                ac++;
+                if (ac == maxColors) { ac = 0; }
+            }
+            <div class="uk-width-medium-1-1 uk-panel-box survey-question-description">
+                <canvas id="Question_Canvas_@q.Id" width="400" height="100"></canvas>
+                <script>makeChart();</script>
+            </div>
+        }
+    }
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+    <input type="hidden" id="textConverter" value="" />
+</div>

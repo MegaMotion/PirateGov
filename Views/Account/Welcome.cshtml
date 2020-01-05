@@ -1,0 +1,16 @@
+﻿@using TestCoreApp.Models.ViewModels.Account
+@model WelcomeViewModel
+
+
+<h1>
+    @Model.Message
+</h1>
+
+<h4>
+    Now that you are a registered User, you can <a href="/Surveys/">fill out surveys</a> and view results!
+</h4>
+
+<h4>
+    If you like what you see here and wish to support our work, either by getting involved or by contributing financially, 
+    please consider <b><a asp-action="Join" asp-controller="Account">becoming a member!</a></b>
+</h4>

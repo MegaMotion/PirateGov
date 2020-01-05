@@ -1,0 +1,255 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Admin\WelcomeViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Welcome.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Chart.js" Version="2.9.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="stripe.net" Version="34.1.0" />
+    <PackageReference Include="uikit" Version="2.25.0" />
+    <PackageReference Include="WebIcons" Version="1.0.1" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\uikit\components\accordion.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\accordion.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\accordion.css" />
+    <None Include="wwwroot\css\uikit\components\accordion.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\accordion.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\accordion.min.css" />
+    <None Include="wwwroot\css\uikit\components\autocomplete.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\autocomplete.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\autocomplete.css" />
+    <None Include="wwwroot\css\uikit\components\autocomplete.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\autocomplete.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\autocomplete.min.css" />
+    <None Include="wwwroot\css\uikit\components\datepicker.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\datepicker.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\datepicker.css" />
+    <None Include="wwwroot\css\uikit\components\datepicker.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\datepicker.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\datepicker.min.css" />
+    <None Include="wwwroot\css\uikit\components\dotnav.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\dotnav.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\dotnav.css" />
+    <None Include="wwwroot\css\uikit\components\dotnav.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\dotnav.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\dotnav.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-advanced.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\form-advanced.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-advanced.css" />
+    <None Include="wwwroot\css\uikit\components\form-advanced.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\form-advanced.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-advanced.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-file.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\form-file.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-file.css" />
+    <None Include="wwwroot\css\uikit\components\form-file.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\form-file.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-file.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-password.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\form-password.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-password.css" />
+    <None Include="wwwroot\css\uikit\components\form-password.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\form-password.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-password.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-select.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\form-select.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-select.css" />
+    <None Include="wwwroot\css\uikit\components\form-select.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\form-select.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\form-select.min.css" />
+    <None Include="wwwroot\css\uikit\components\htmleditor.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\htmleditor.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\htmleditor.css" />
+    <None Include="wwwroot\css\uikit\components\htmleditor.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\htmleditor.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\htmleditor.min.css" />
+    <None Include="wwwroot\css\uikit\components\nestable.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\nestable.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\nestable.css" />
+    <None Include="wwwroot\css\uikit\components\nestable.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\nestable.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\nestable.min.css" />
+    <None Include="wwwroot\css\uikit\components\notify.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\notify.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\notify.css" />
+    <None Include="wwwroot\css\uikit\components\notify.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\notify.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\notify.min.css" />
+    <None Include="wwwroot\css\uikit\components\placeholder.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\placeholder.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\placeholder.css" />
+    <None Include="wwwroot\css\uikit\components\placeholder.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\placeholder.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\placeholder.min.css" />
+    <None Include="wwwroot\css\uikit\components\progress.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\progress.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\progress.css" />
+    <None Include="wwwroot\css\uikit\components\progress.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\progress.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\progress.min.css" />
+    <None Include="wwwroot\css\uikit\components\search.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\search.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\search.css" />
+    <None Include="wwwroot\css\uikit\components\search.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\search.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\search.min.css" />
+    <None Include="wwwroot\css\uikit\components\slidenav.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\slidenav.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\slidenav.css" />
+    <None Include="wwwroot\css\uikit\components\slidenav.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\slidenav.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\slidenav.min.css" />
+    <None Include="wwwroot\css\uikit\components\slider.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\slider.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\slider.css" />
+    <None Include="wwwroot\css\uikit\components\slider.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\slider.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\slider.min.css" />
+    <None Include="wwwroot\css\uikit\components\slideshow.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\slideshow.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\slideshow.css" />
+    <None Include="wwwroot\css\uikit\components\slideshow.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\slideshow.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\slideshow.min.css" />
+    <None Include="wwwroot\css\uikit\components\sortable.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\sortable.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\sortable.css" />
+    <None Include="wwwroot\css\uikit\components\sortable.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\sortable.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\sortable.min.css" />
+    <None Include="wwwroot\css\uikit\components\sticky.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\sticky.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\sticky.css" />
+    <None Include="wwwroot\css\uikit\components\sticky.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\sticky.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\sticky.min.css" />
+    <None Include="wwwroot\css\uikit\components\tooltip.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\tooltip.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\tooltip.css" />
+    <None Include="wwwroot\css\uikit\components\tooltip.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\tooltip.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\tooltip.min.css" />
+    <None Include="wwwroot\css\uikit\components\upload.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\components\upload.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\components\upload.css" />
+    <None Include="wwwroot\css\uikit\components\upload.gradient.css" />
+    <None Include="wwwroot\css\uikit\components\upload.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\components\upload.min.css" />
+    <None Include="wwwroot\css\uikit\uikit.almost-flat.css" />
+    <None Include="wwwroot\css\uikit\uikit.almost-flat.min.css" />
+    <None Include="wwwroot\css\uikit\uikit.css" />
+    <None Include="wwwroot\css\uikit\uikit.gradient.css" />
+    <None Include="wwwroot\css\uikit\uikit.gradient.min.css" />
+    <None Include="wwwroot\css\uikit\uikit.min.css" />
+    <None Include="wwwroot\js\Home\Main.js" />
+    <None Include="wwwroot\lib\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\lib\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\lib\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\lib\fonts\FontAwesome.otf" />
+    <None Include="wwwroot\lib\uikit\components\accordion.js" />
+    <None Include="wwwroot\lib\uikit\components\accordion.min.js" />
+    <None Include="wwwroot\lib\uikit\components\autocomplete.js" />
+    <None Include="wwwroot\lib\uikit\components\autocomplete.min.js" />
+    <None Include="wwwroot\lib\uikit\components\datepicker.js" />
+    <None Include="wwwroot\lib\uikit\components\datepicker.min.js" />
+    <None Include="wwwroot\lib\uikit\components\form-password.js" />
+    <None Include="wwwroot\lib\uikit\components\form-password.min.js" />
+    <None Include="wwwroot\lib\uikit\components\form-select.js" />
+    <None Include="wwwroot\lib\uikit\components\form-select.min.js" />
+    <None Include="wwwroot\lib\uikit\components\grid-parallax.js" />
+    <None Include="wwwroot\lib\uikit\components\grid-parallax.min.js" />
+    <None Include="wwwroot\lib\uikit\components\grid.js" />
+    <None Include="wwwroot\lib\uikit\components\grid.min.js" />
+    <None Include="wwwroot\lib\uikit\components\htmleditor.js" />
+    <None Include="wwwroot\lib\uikit\components\htmleditor.min.js" />
+    <None Include="wwwroot\lib\uikit\components\lightbox.js" />
+    <None Include="wwwroot\lib\uikit\components\lightbox.min.js" />
+    <None Include="wwwroot\lib\uikit\components\nestable.js" />
+    <None Include="wwwroot\lib\uikit\components\nestable.min.js" />
+    <None Include="wwwroot\lib\uikit\components\notify.js" />
+    <None Include="wwwroot\lib\uikit\components\notify.min.js" />
+    <None Include="wwwroot\lib\uikit\components\pagination.js" />
+    <None Include="wwwroot\lib\uikit\components\pagination.min.js" />
+    <None Include="wwwroot\lib\uikit\components\parallax.js" />
+    <None Include="wwwroot\lib\uikit\components\parallax.min.js" />
+    <None Include="wwwroot\lib\uikit\components\search.js" />
+    <None Include="wwwroot\lib\uikit\components\search.min.js" />
+    <None Include="wwwroot\lib\uikit\components\slider.js" />
+    <None Include="wwwroot\lib\uikit\components\slider.min.js" />
+    <None Include="wwwroot\lib\uikit\components\slideset.js" />
+    <None Include="wwwroot\lib\uikit\components\slideset.min.js" />
+    <None Include="wwwroot\lib\uikit\components\slideshow-fx.js" />
+    <None Include="wwwroot\lib\uikit\components\slideshow-fx.min.js" />
+    <None Include="wwwroot\lib\uikit\components\slideshow.js" />
+    <None Include="wwwroot\lib\uikit\components\slideshow.min.js" />
+    <None Include="wwwroot\lib\uikit\components\sortable.js" />
+    <None Include="wwwroot\lib\uikit\components\sortable.min.js" />
+    <None Include="wwwroot\lib\uikit\components\sticky.js" />
+    <None Include="wwwroot\lib\uikit\components\sticky.min.js" />
+    <None Include="wwwroot\lib\uikit\components\timepicker.js" />
+    <None Include="wwwroot\lib\uikit\components\timepicker.min.js" />
+    <None Include="wwwroot\lib\uikit\components\tooltip.js" />
+    <None Include="wwwroot\lib\uikit\components\tooltip.min.js" />
+    <None Include="wwwroot\lib\uikit\components\upload.js" />
+    <None Include="wwwroot\lib\uikit\components\upload.min.js" />
+    <None Include="wwwroot\lib\uikit\core\alert.js" />
+    <None Include="wwwroot\lib\uikit\core\alert.min.js" />
+    <None Include="wwwroot\lib\uikit\core\button.js" />
+    <None Include="wwwroot\lib\uikit\core\button.min.js" />
+    <None Include="wwwroot\lib\uikit\core\core.js" />
+    <None Include="wwwroot\lib\uikit\core\core.min.js" />
+    <None Include="wwwroot\lib\uikit\core\cover.js" />
+    <None Include="wwwroot\lib\uikit\core\cover.min.js" />
+    <None Include="wwwroot\lib\uikit\core\dropdown.js" />
+    <None Include="wwwroot\lib\uikit\core\dropdown.min.js" />
+    <None Include="wwwroot\lib\uikit\core\grid.js" />
+    <None Include="wwwroot\lib\uikit\core\grid.min.js" />
+    <None Include="wwwroot\lib\uikit\core\modal.js" />
+    <None Include="wwwroot\lib\uikit\core\modal.min.js" />
+    <None Include="wwwroot\lib\uikit\core\nav.js" />
+    <None Include="wwwroot\lib\uikit\core\nav.min.js" />
+    <None Include="wwwroot\lib\uikit\core\offcanvas.js" />
+    <None Include="wwwroot\lib\uikit\core\offcanvas.min.js" />
+    <None Include="wwwroot\lib\uikit\core\scrollspy.js" />
+    <None Include="wwwroot\lib\uikit\core\scrollspy.min.js" />
+    <None Include="wwwroot\lib\uikit\core\smooth-scroll.js" />
+    <None Include="wwwroot\lib\uikit\core\smooth-scroll.min.js" />
+    <None Include="wwwroot\lib\uikit\core\switcher.js" />
+    <None Include="wwwroot\lib\uikit\core\switcher.min.js" />
+    <None Include="wwwroot\lib\uikit\core\tab.js" />
+    <None Include="wwwroot\lib\uikit\core\tab.min.js" />
+    <None Include="wwwroot\lib\uikit\core\toggle.js" />
+    <None Include="wwwroot\lib\uikit\core\toggle.min.js" />
+    <None Include="wwwroot\lib\uikit\core\touch.js" />
+    <None Include="wwwroot\lib\uikit\core\touch.min.js" />
+    <None Include="wwwroot\lib\uikit\core\utility.js" />
+    <None Include="wwwroot\lib\uikit\core\utility.min.js" />
+    <None Include="wwwroot\lib\uikit\uikit.js" />
+    <None Include="wwwroot\lib\uikit\uikit.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Users\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,19 @@
+﻿@using TestCoreApp.Models.ViewModels.Admin
+@model NotFoundViewModel
+
+@if (Model == null)
+{
+    @if (@Model.DesiredPage.Length > 0)
+    {
+        <h2>Sorry, this page (@Model.DesiredPage) cannot be found.</h2>
+    }
+    else
+    {
+        <h2>Sorry, this page cannot be found.</h2>
+    }
+}
+
+@if (ViewBag.ErrorMessage.Length > 0)
+{
+    <h2>Error:  @ViewBag.ErrorMessage</h2>
+}

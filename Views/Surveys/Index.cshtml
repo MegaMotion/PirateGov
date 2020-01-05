@@ -1,0 +1,68 @@
+﻿@model IEnumerable<TestCoreApp.Models.ViewModels.Surveys.SurveyViewModel>
+@using TestCoreApp.Models.Entities;
+@inject SignInManager<ApplicationUser> signInManager;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    @if (signInManager.IsSignedIn(User) && (User.IsInRole("Creator") || User.IsInRole("Admin")))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @if (signInManager.IsSignedIn(User) && (User.IsInRole("Creator") || User.IsInRole("Admin")))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    }
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    }
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        if (item.UserStatus == "NotStarted")
+                        {
+                            <a asp-action="TakeSurvey" asp-route-id="@item.Id" class="btn-primary btn-primary survey-answer-description">Take Survey</a>
+                        }
+                        else if (item.UserStatus == "Started")
+                        {
+                            <a asp-action="TakeSurvey" asp-route-id="@item.Id" class="btn-primary btn-primary survey-answer-description">Finish Survey</a>
+                        }
+                        else if (item.UserStatus == "Finished")
+                        {
+                            <a asp-action="ReviewSurvey" asp-route-id="@item.Id" class="btn-primary btn-primary survey-answer-description">Review Survey</a>
+                        }
+
+                        if (item.UserStatus != "NotStarted")
+                        {
+                            <a asp-action="ViewResults" asp-route-id="@item.Id" class="btn-primary btn-primary survey-answer-description">View Results</a>
+                        }
+
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

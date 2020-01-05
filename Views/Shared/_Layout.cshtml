@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+@using TestCoreApp.Models.Entities;
+@inject SignInManager<ApplicationUser> signInManager;
+@inject UserManager<ApplicationUser> userManager;
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pirate Party</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" />
+
+    <link rel="stylesheet" href="~/css/uikit/uikit.min.css" />
+    <link rel="stylesheet" href="~/css/uikit/uikit.gradient.min.css" />
+
+    <link rel="stylesheet" href="~/css/uikit/components/tooltip.min.css" />
+    <link rel="stylesheet" href="~/css/uikit/components/tooltip.gradient.min.css" />
+
+    <link rel="stylesheet" href="~/lib/chart.js/Content/Chart.min.css" />
+
+    <meta name="description" content="Lane County Pirate Party" />
+    <link rel="shortcut icon" href="http://www.pirategov.org/images/parrot-icon.png">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <img src="http://www.pirategov.org/images/PirateHead.png" style="height: 60px; " />
+                <a class="navbar-brand survey-answer-name" asp-area="" asp-controller="Home" asp-action="Main">PirateGov</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex " style="vertical-align:middle">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark survey-answer-description" asp-controller="Home" asp-action="Declaration">Declaration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark survey-answer-description" asp-controller="Surveys" asp-action="Index">Surveys</a>
+                        </li>
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark survey-answer-description" asp-controller="Admin" asp-action="ListRoles">Roles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark survey-answer-description" asp-controller="Admin" asp-action="ListUsers">Users</a>
+                            </li>
+                        }
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <form method="post" asp-action="Logout" asp-controller="Account">
+                                    <button type="submit" class="nav-link btn btn-link py-0 survey-answer-name" style="width:auto">Logout @User.Identity.Name</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+
+                        }
+                    </ul>
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <img src="http://www.pirategov.org/images/treasure-chest.png" style="height: 60px; " />
+                        var user = await @userManager.GetUserAsync(User);
+                        <div class="pirate-gold">@user.PirateGold</div>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/font-awesome/js/all.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/uikit/uikit.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
